@@ -1,0 +1,15 @@
+[package]
+# Sound Output System for Commentary
+name = "sosc"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+priority-queue = "1.3.1"
+rand = "0.8.5"
+serde = "1.0.152"
+serde_with = "2.2.0"
+serde_yaml = "0.9.17"
+walkdir = "2.3.2"
