@@ -3,8 +3,9 @@
   id: 0
   sucs: [1, 2, 3]
   events: [1]
-  path: "assets/1.mp3"
+  path: "assets/0.mp3"
   line: "Perfect day "
+  duration: 10
   format: 1
   init: true
   term: false
@@ -12,8 +13,9 @@
   id: 1
   sucs: []
   events: [1]
-  path: "assets/2.mp3"
+  path: "assets/1.mp3"
   line: "at the stadium "
+  duration: 10
   format: 1
   init: false
   term: true
@@ -21,8 +23,9 @@
   id: 2
   sucs: [4]
   events: [1]
-  path: "assets/3.mp3"
+  path: "assets/2.mp3"
   line: "not a cloud in the sky here at "
+  duration: 10
   format: 1
   init: false
   term: false
@@ -30,8 +33,9 @@
   id: 3
   sucs: [4]
   events: [1]
-  path: "assets/4.mp3"
+  path: "assets/3.mp3"
   line: "here at "
+  duration: 10
   format: 1
   init: false
   term: false
@@ -39,8 +43,9 @@
   id: 4
   sucs: []
   events: [1]
-  path: "assets/5.mp3"
+  path: "assets/4.mp3"
   line: "The park."
+  duration: 10
   format: 1
   init: false
   term: true
@@ -48,8 +53,9 @@
   id: 5
   sucs: []
   events: [1]
-  path: "assets/6.mp3"
+  path: "assets/5.mp3"
   line: "Nothing to complain about here today."
+  duration: 10
   format: 1
   init: false
   term: true
@@ -57,8 +63,9 @@
   id: 6
   sucs: []
   events: [2]
-  path: "assets/7.mp3"
+  path: "assets/6.mp3"
   line: "What a goal!"
+  duration: 10
   format: 1
   init: true
   term: true

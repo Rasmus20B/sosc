@@ -1,21 +1,15 @@
-use priority_queue::PriorityQueue;
+use crate::schedule;
+use std::time::{Duration};
+
 
 #[derive(Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Event {
     pub name : String,
     pub id : u32,
-    pub priority : u8
-}
-struct EventQueue { 
-    q : PriorityQueue<Event, u8>
+    pub priority : u32,
 }
 
-impl EventQueue {
-    pub fn pop_event() {
-        
-    }
-
-    pub fn store_event(e : Event) {
-    }
+// Add event function needs to call to scheduler
+pub fn add_event() {
+    // if the conditions are met, then interrupt the worker thread
 }
-

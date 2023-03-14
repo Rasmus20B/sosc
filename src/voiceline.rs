@@ -6,7 +6,6 @@ use serde::*;
 
 use rand::*;
 
-
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub struct Voiceline  {
     pub id : usize,
@@ -14,6 +13,7 @@ pub struct Voiceline  {
     events : Vec<u32>,
     pub path : String,
     line : String,
+    duration : u32,
     format : u16,
     init : bool,
     term : bool
@@ -52,7 +52,7 @@ pub fn generate_voiceline(vls : &SoundStorage, e : &Event) -> String {
 
     let mut origins = Vec::new();
     for (i, _e) in graph.iter().enumerate() {
-        if vls.store[i].init == true {
+        if vls.store[i].init && vls.store[i].events.contains(&e.id) == true {
             origins.push(i);
         }
     }
@@ -81,14 +81,12 @@ pub fn generate_voiceline(vls : &SoundStorage, e : &Event) -> String {
         cur = graph[cur][r];
     }
 
-    print_graph(&graph);
-
     return result;
 }
 
-pub fn store_segments<'a>(file : &std::path::Path, vls : &'a mut SoundStorage) ->
-std::result::Result<&'a mut SoundStorage, Box<dyn std::error::Error>> {
+pub fn store_segments<'a>(file : &std::path::Path) ->
+std::result::Result<SoundStorage, Box<dyn std::error::Error>> {
     let f = std::fs::File::open(file)?;
-    vls.store = serde_yaml::from_reader(f)?;
+    let vls = SoundStorage { store: serde_yaml::from_reader(f)? };
     Ok(vls)
 }
