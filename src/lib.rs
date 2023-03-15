@@ -7,6 +7,7 @@ use crate::event::*;
 use crate::sosc::*;
 use std::path::*;
 
+use std::thread::*;
 use std::time::Duration;
 
 #[cfg(test)]
@@ -30,10 +31,12 @@ pub mod tests {
     
     pub fn sosc_main_test() {
         let mut h = sosc::init();
-        let e : Event = Event{ name: "match_start".to_string(), id : 1, priority : 0 }; 
+        let e : Event = Event{ name: "match_start".to_string(), id : 1, priority : 2 }; 
         h.store_sounds(Path::new("assets/vls.yaml"));
-        h.add_event(&e);
+        h.start();
+        h.add_event(e);
         let e : Event = Event{ name: "Goal".to_string(), id : 2, priority : 0 }; 
-        h.add_event(&e);
+        h.add_event(e);
+        sleep(Duration::new(0, 20));
     }
 }
