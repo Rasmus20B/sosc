@@ -35,8 +35,8 @@ pub mod tests {
         h.store_sounds(Path::new("assets/vls.yaml"));
         h.start();
         h.add_event(e);
-        let e : Event = Event{ name: "Goal".to_string(), id : 2, priority : 0 }; 
+        let e : Event = Event{ name: "Goal".to_string(), id : 2, priority : 3 }; 
         h.add_event(e);
-        sleep(Duration::new(0, 20));
+        sleep(Duration::new(0, 100000000));
     }
 }

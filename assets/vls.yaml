@@ -69,3 +69,13 @@
   format: 1
   init: true
   term: true
+-
+  id: 7
+  sucs: [3]
+  events: [1]
+  path: "assets/7.mp3"
+  line: "we are "
+  duration: 5
+  format: 1
+  init: true
+  term: false
