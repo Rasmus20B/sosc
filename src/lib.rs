@@ -19,8 +19,9 @@ pub mod tests {
         let e : Event = Event{ name: "match_start".to_string(), id : 1, priority : 1 }; 
         h.store_sounds(Path::new("assets/vls.yaml"));
         h.add_event(e);
+        sleep(Duration::new(0, 200));
         // preempt previous event voiceline generation (higher priority)
-        let e : Event = Event{ name: "Goal".to_string(), id : 2, priority : 0 }; 
+        let e : Event = Event{ name: "Goal".to_string(), id : 2, priority : 1 }; 
         h.add_event(e);
         sleep(Duration::new(0, 1000000));
     }
