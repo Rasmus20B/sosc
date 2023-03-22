@@ -3,7 +3,7 @@ use crate::event::*;
 use crate::voiceline::*;
 
 use std::time::Duration;
-use std::sync::{Arc, atomic::{AtomicU32, Ordering}, mpsc};
+use std::sync::{Arc, atomic::{AtomicU32, Ordering}};
 use std::thread;
 
 #[derive(PartialEq)]
@@ -29,14 +29,6 @@ impl Scheduler {
         new
     }
 
-
-    pub fn start(&mut self) {
-        self.worker = Some(thread::spawn( move || {
-        }
-        ));
-
-    }
-
     pub fn store_sounds(&mut self, p : &std::path::Path) {
         self.sounds = Arc::new(store_segments(&p).unwrap())
     }
@@ -48,8 +40,7 @@ impl Scheduler {
             let cp = self.current_priority.clone();
             self.worker = Some(thread::spawn(move || {
                 let res = generate_voiceline(&ss, &e);
-                thread::sleep(Duration::new(0, 100000));
-                if cp.load(Ordering::Acquire).clone() < e.priority {
+                if cp.load(Ordering::Acquire) < e.priority {
                     return;
                 }
                 println!("{res}");
